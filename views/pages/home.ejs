@@ -1,0 +1,88 @@
+<%- include ('../partials/header') %>
+<div class="row d-flex justify-content-center m-2">
+  <%- include ('../partials/messages') %>
+  <div id="success" class="alert alert-success alert-dismissible fade show
+                           <% if(noMessages){ %>invisible<% } %>">
+      <%= successMgs %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% if(noMatch !== null){ %>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <p class="text-center"><%= noMatch %></p>
+      <button type="button" class="close"
+              data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  <% } %>
+</div>
+<div class="container">
+  <% if(students.length > 0){ %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Roll No.</th>
+          <th>Name</th>
+          <th>SID</th>
+          <% if(currentUser && currentUser.name == 'Admin'){ %>
+            <th>Update</th>
+            <th>Delete</th>
+          <% } %>
+        </tr>
+      </thead>
+      <tbody id="studentTable">
+        <% students.forEach((student) => { %>
+          <tr>
+            <th scope="row">
+              <a href="/<%= student._id %>/profile" class="text-decoration-none">
+                <%= student.rollno %>
+              </a>
+            </th>
+            <th>
+              <a href="/<%= student._id %>/profile" class="text-decoration-none">
+                <%= student.name %>
+              </a>
+            </th>
+            <th>
+              <a href="/<%= student._id %>/profile" class="text-decoration-none">
+                <%= student.sid %>
+              </a>
+            </th>
+            <% if(currentUser && currentUser.name == "Admin"){ %>
+              <th>
+                <div class="form-group">
+                  <a href="/<%= student._id %>/edit"
+                     class="btn btn-warning">
+                    Edit
+                  </a>
+                </div>
+              </th>
+              <th>
+                <form action="/<%= student._id %>?_method=DELETE"
+                      method="post">
+                  <button class="btn btn-danger">Delete</button>
+                </form>
+              </th>
+            <% } %>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } %>
+  <div class="row d-flex justify-content-center m-2">
+    <p class="lead" style="font-size: 20px;">
+      <% if(students.length <= 0){ %>
+        No student
+      <% } %>
+      <%= students.length %>
+      <% if(students.length > 1){ %>students are
+      <% }else{ %>
+        is
+      <% } %> found
+     </p>
+  </div>
+  </div>
+</div>
+<%- include ('../partials/footer') %>

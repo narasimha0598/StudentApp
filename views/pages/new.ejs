@@ -1,0 +1,56 @@
+<%- include ('../partials/header') %>
+<div class="row d-flex justify-content-center mt-5 mb-3">
+    <%- include ('../partials/messages') %>
+</div>
+<div class="d-flex justify-content-center p-1">
+    <div class="card col-lg-6 col-md-8 col-sm-10 col-xs-12 mt-5 mb-5"
+         id='registerform'>
+        <div class="card-body">
+            <h4 class="card-title text-center mb-5">New Student</h4>
+            <form action='/new' method='post' class='form-group'>
+                <div class="form-group">
+                    <input type="text" class="form-control" 
+                           name="name" placeholder="Student Name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" 
+                           name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control"
+                           name="password" placeholder="Password"
+                           required minlength="6">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" 
+                           name="sid" placeholder="Student ID">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control"
+                           name="gender" placeholder="Gender">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control"
+                           name="rollno" placeholder="Roll Number">
+                </div>
+                <div class="form-group">
+                    <input type="number" class="form-control"
+                           name="age" placeholder="Age">
+                </div>
+                <div class="row d-flex justify-content-center">
+                    <div class="form-group">
+                        <input type="submit" class="btn btn-outline-primary" 
+                               id='addstudent' value="Add">
+                    </div>
+                    <div class="form-group ml-2">
+                        <a href="javascript:history.back()"
+                           class="btn btn-outline-secondary">
+                           Cancel
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<% include ('../partials/footer') %>

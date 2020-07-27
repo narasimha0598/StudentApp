@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" 
+            type="text/javascript"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" 
+          rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link href="/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Electronics House</title>
+</head>
+<body style="font-size: 15px;">
+    <nav class="navbar navbar-expand-lg navbar-dark col-*-12"
+         style="background-color: rgb(69, 15, 218);">
+      <button class="navbar-toggler" type="button"
+              data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="navbar-brand ml-xl-5 ml-lg-3 ml-md-1"
+             href='/' style="font-size: 15px;">
+          StudentApp
+      </a>
+      <% if(!login){ %>
+        <a class="nav-link text-decoration-none" href="/login">
+          <i class="fa fa-sign-in-alt text-light" aria-hidden="true"></i>
+        </a>
+      <% }else{ %>
+        <% if(currentUser.name != 'Admin'){ %>
+          <a class="nav-link text-decoration-none text-warning"
+             href="/<%= currentUser._id %>/profile">
+            <i class="fa fa-user text-warning" aria-hidden="true"></i>
+            <%= currentUser.name %>
+          </a>
+        <% }else{ %>
+          <a class="nav-link text-decoration-none" href="/signup">
+            <i class="fa fa-sign-in-alt text-light" aria-hidden="true"></i>
+          </a>
+          <a class="nav-link text-decoration-none" href="/new">
+            <i class="fa fa-user-plus text-warning" aria-hidden="true"></i>
+          </a>
+        <% } %>
+        <a class="nav-link text-decoration-none" href="/logout">
+          <i class="fa fa-sign-out-alt text-warning" aria-hidden="true"></i>
+        </a>
+      <% } %>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto"></ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" id="search"
+                 name="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>    

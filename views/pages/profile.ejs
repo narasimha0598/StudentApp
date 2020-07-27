@@ -1,0 +1,78 @@
+<%- include ('../partials/header') %>
+<div class="container">
+  <div class="row d-flex justify-content-center p-1 mt-5 mb-5">
+    <div class="card col-xl-8 col-lg-8 col-md-8 col-sm-10 col-xs-10 col-12">
+        <div class="card-body">
+            <h4 class="card-title text-center">Student Profile</h4>
+            <div class="card-text m-3">
+                <table class="table table-borderless col-*-8">
+                    <tbody>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">User Name</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.name %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Email Address</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.email %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Gender</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.gender %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Age</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.age + (new Date().getFullYear() - 2020) %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Start Date</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.startDate.getFullYear() %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Student ID</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.sid %>
+                          </p>
+                        </td>
+                      </tr>
+                      <tr>
+                        <th scope="row col-sm-10 col-xs-12 col-12">Roll Number</th>
+                        <td>
+                          <p class="text-break text-center">
+                            <%= student.rollno %>
+                          </p>
+                        </td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>              
+            <div class="d-flex justify-content-center mt-3">
+                <a href="javascript:history.back()" class="btn btn-primary">
+                  Go Back
+                </a>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<%- include ('../partials/footer') %>
